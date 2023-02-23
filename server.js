@@ -45,6 +45,11 @@ app.get("/about", function(req,res){
     res.sendFile(path.join(__dirname,"/views/about.html"));
 });
 
+
+app.get("/posts/add",function(req,res){
+    res.sendFile(path.join(__dirname,"/views/addPost.html"));
+});
+
 app.get("/categories",function(req,res){
     server.getCategories()
     .then((data)=>res.send(data))
@@ -83,9 +88,6 @@ app.get("/posts/:value",function(req,res){
     .catch((err)=>res.send(err))
 });
 
-app.get("/posts/add",function(req,res){
-    res.sendFile(path.join(__dirname,"/views/addPost.html"));
-});
 
 app.get("/blog",function(req,res){
     server.getPublishedPosts()
