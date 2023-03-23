@@ -46,6 +46,27 @@ exports.getPublishedPosts = function() {
     })
 }
 
+exports.getPublishedPostsByCategory = function (category)
+{
+    return new Promise(function(resolve,reject)
+    {
+        if(posts.length==0)
+        {
+            reject("no results returned")
+        }
+        var temp = []
+
+        for(var i=0;i<posts.length;i++)
+        {
+            if(posts[i].published==true && posts[i].category == category)
+            {
+                temp.push(posts[i])
+            }
+        }
+        resolve(temp)
+    })
+}
+
 exports.getCategories = function() {
     return new Promise(function(resolve,reject)
     {
@@ -129,10 +150,13 @@ exports.addPost=function(postData)
         }
 
         postData.id=posts.length+1;
+        var postDate = new Date();
+        var date = postDate.getFullYear() +  "-" + postDate.getMonth() + "-" + postDate.getDate()
         const newval = {
             id: postData.id,
-            body: postData.body,
             title: postData.title,
+            body: postData.body,
+            postDate: date,
             category: postData.category,
             featureImage: postData.featureImage,
             published: postData.published
