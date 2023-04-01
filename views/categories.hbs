@@ -1,15 +1,17 @@
 <div class="row">
     <div class="col-md-12">
-        <h2>Categories</h2>
+        <h2><a href="/categories/add" class="btn btn-success pull-right">Add Category</a></h2>
         <table class="table table-responsive">
             <tr>
                 <th>Categories ID</th>
                 <th>Category Name</th>
+                <th></th>
             </tr>
             {{#each categories}}
             <tr>
                 <td>{{id}}</td>
                 <td><a href="/posts?category={{id}}">{{category}}</a></td>
+                <td><a href="/categories/delete/{{id}}" class="list-group-item">Remove</a></td>
             </tr>
             {{/each}}
         </table>
