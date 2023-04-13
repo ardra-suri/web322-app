@@ -1,0 +1,21 @@
+{{#if errorMessage}}
+      <div class="alert alert-danger"> <strong>Error:</strong> {{errorMessage}}</div>
+
+{{/if}}
+
+
+<form action="/login" method="POST" >
+  <div class="form-group">
+   <td><label class="form-label" for="username">User Name</label></td>
+            <td><input autofocus class="form-control" id="username" required type="text" name="userName" placeholder="User Name"/><br/></td>
+  </div>
+
+<div class="form-group">
+   <td><label class="form-label" for="password">Password</label></td>
+            <td><input autofocus class="form-control" id="password" required type="password" name="password" placeholder="Password"/><br/></td>
+  </div>
+
+  <hr>
+  <button type="submit" value="Login" class="btn btn-primary">Login</button>
+  </form>
+
